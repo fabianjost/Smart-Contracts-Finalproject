@@ -1,70 +1,178 @@
-# Getting Started with Create React App
+Final Project
+================
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Deadline: Thu, 16 June 2022, 23:55
 
-## Available Scripts
+Topic
+---------
+Choose a topic to your liking for your own project. If you have no preference for any topic, you may build on the TU
+Wien Beer Bar by either replacing parts and/or extending the existing project. For example, this could be a pub quiz, an
+extended beer supply or an extended voting board.
 
-In the project directory, you can run:
+Grading
+---------
+We consider the following aspects:
 
-### `npm start`
+- Documentation: Provide the documentation of your project by completing the project details in the README.md on git.
+  Add further files as necessary.
+- Complexity: The project should be non-trivial. Rather, it should make use of mappings, roles with RBAC, modifiers,
+  Ether and tokens when reasonable. Moreover, it should provide a simple web interface for interaction with the
+  contract.
+- Correctness: The project should use correct math (big numbers, overflow), include test cases and ensure that neither
+  any ether nor any tokens are lost.
+- Security: Try to avoid that the contract can be depleted by any method used in the challenges.
+- Originality: We would like your projects to be distinguishable from reproductions, clones, forgeries, or derivative
+  works. On a side note: we've already seen too many casinos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+We place less value on a fancy WebUI, as it is not part of the LVA.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Your project is complex enough if 40 hours of effort are understandable for us.**
 
-### `npm test`
+Project Outline 
+---------------
+### Deadline: Thu, 12 May 2022, 23:55.
+Prepare and submit an outline for your chosen topic on TUWEL.
+This should be a structured document (2 pages) that contains the following elements:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+Title:
+Short description of functionality:
+Off-chain part - frontend design:
+On-chain part - planned contracts:
+Token concept incl. used standards:
+Ether usage:
+Roles:
+Data structures:
+Security considerations:
+Used coding patterns in addition to roles (randomness, commitments, timeouts, deposits, or others):
+```
 
-### `npm run build`
+Regarding the complexity of your project, please consider as a typical breakdown for your efforts:
+- 15h Contract development  
+- 5h Contract test cases
+- 5h Frontend development  
+- 5h Testing and deploying
+- 10h Setup of GitLab, Truffle, etc.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Submission and Presentation
+---------
+Submit your project to your `master` branch on `git.sc.logic.at` and present it in the online review session on Thu, 23
+June 2022. Reserve a time slot via TUWEL.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---------------------------
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+HOWTO
+=====
+Run `npm install` to install all dependencies.
 
-### `npm run eject`
+This repository contains an initialized Truffle project.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Recommended web3.js version: v1.7.1
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Truffle
+-------
+Implement your contracts in the `contracts/` folder. You can compile them with `npm run compile`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Implement your test cases in the `tests/` folder. You can run them with `npm run test`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+With `npm run dev` you can start a local truffle development chain.
 
-## Learn More
+You can deploy the project to the LVA-Chain via `npm run truffle deploy -- --network=prod` (requires running `geth`
+client). If you use roles, please make us - the person at `addresses.getPublic(94)` - an owner/admin of the contract.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Web interface
+-------------
+You are free to implement your web interface to your liking. You can use static JavaScript files (similar to the BeerBar
+Plain Version) or [Drizzle-React](https://github.com/trufflesuite/drizzle-react) (BeerBar React Version), or any other
+suitable framework like [Angular](https://angular.io/)
+, [Vue](https://vuejs.org/), [React](https://reactjs.org/).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you use only static content, put your files into the `public/` folder.  
+You can run a local webserver with `npm run start`.
 
-### Code Splitting
+If you use another framework, you will need to adjust the `build` command in `package.json`. Follow the documentation of
+your framework for doing so.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The content of your `public/` folder will also be available via the URL <https://final.pages.sc.logic.at/e12140504>
+.
 
-### Analyzing the Bundle Size
+---------------------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Project details
+===============
+(Please do not change the headers or layout of this section)
 
-### Making a Progressive Web App
+Title
+-----
+The DAO
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Addresses
+---------
 
-### Advanced Configuration
+- DAOToken: 0x2A0323E0BBF61fe75F16350111f566996a33A61E
+- VotingToken: 0x29B59dC3DD41AC4a8F938C0f3B32aB6A87ee8b0a
+- ICO_DAOToken: 0x0D8c3117f6105D4cFE28432c2a1c1120324A8f5c
+- Locker: 0xc24BD8627FA5D2D0f7A69926807b9dD63A2c417A
+- Voting: 0x229492aBeB95d2b7320E08Bd349fDcF852351C4D
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Description
+-----------
+The project is about creating a DAO (Decentraliced Autonomous Organization). It is
+divided in two parts. First the ICO of the DAOs tokens and second the feature requests
+and voting platform.
+Investors can invest in the DAO by buying tokens at the ICO for the predefined prices.
+Then they can lock their tokens and receive new voting tokens. When locking their
+tokens, they can choose a certain time how long they want to lock them. For locking
+them up longer, they will receive more tokens as a reward when unlocking them. E.g.
+for locking them for 366 days, they will receive 100% more tokens when unlocking (This
+is implemented to prevent investors from dumping their tokens if there is some
+volatility in the crypto market for example.)
+With the acquired voting tokens, the investors can suggest feature requests and
+company decisions etc. The suggested feature requests can receive votes (yes or no)
+as long as the voting is open for that feature request. Feature request that get a
+certain amount of votes get implemented by the developers of the DAO afterwards
+(not part of the smart contract).
 
-### Deployment
+Usage
+-----
+In the general section you can see information about the tokens and their supply.
+In the account section you can see how many tokens the user owns.
+In the ico section tokens can be bought to the specified prices. Prices increase as follows:
+ - 0-1000 tokens sold: 10 Wei
+ - 1001 - 2000 tokens sold: 20 Wei
+ - 2001 - 4000 tokens sold: 40 Wei
+The ico ends after 4000 tokens have been sold
+In the locking section, you can lock up your tokens for a specified amount of time. Depending on how long you lock your tokens, you will get additional dao and voting tokens. For 366 days you will get 100% additional tokens. After the locking time has expired, you can unlock your tokens again. The voting tokens will then get burned and your dao tokens unlocked, which means you can transfer and sell them again.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+After you have locked your DAO tokens and received voting tokens, you can propose new features and vote on existing proposals. Please note that you can not vote on your own proposals, because your votes will get couinted towards them automatically during posting the proposal.
 
-### `npm run build` fails to minify
+Have fun!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Implementation
+--------------
+Note about minimum locking time: 
+Normally the minimum locking time would need to be as long as the voting for the proposals is open to prevent multiple votes from the same person. To showcase that the unlock function is working and to show the full finctionality during the review session, I chose to not set a minumum locking time.
+
+Effort breakdown
+------------------
+10 hours setup of truffle gitlab etc
+20 setup of drizzle and frontend development
+20 hours contract development
+5 hours test contract cases
+10 hours testing and deploying
+
+
+Difficulties
+------------
+There were some issues with drizzle. Specifically that drizzlestate does not get updated when doing a cachecall on mappings or view functions, even though I know that the return value has changed. Only a page reload updates the value. Further research showed that this might be related to an issue with drizzle which has not been merged into the master branch. Further details can be found here: https://github.com/trufflesuite/drizzle-legacy/pull/208
+In gerneal a short introduction on how to work with a frontend and how to connect it to the blockchain would be great. A PDF with an additional Q&A session would be enough here. I've waisted a lot of time with getting this to work.
+
+Other issues where that I did not exactly know how to structure my contracts in the beginning and how to put them together (e.g inheritance or connect with interfaces, how to handle access control, etc.). I think a short lecture on best practices on this subject would also be a great starting point.
+
+I also had some difficulties figuring out what the best data structure is and how to work with mappings the best way to consume as few gas as possible.
+
+Proposal for future changes
+---------------------------
+The excercise in an of itself is great. My only critisizm is what I mentioned above, the issues with the frontend development.
+Also more information on how to structure the contracts and how to organize data would be great.
+Maybe even an additional follow up course on things like IPFS will be found interesting by some students.
